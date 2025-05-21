@@ -4,6 +4,144 @@
   <meta charset="UTF-8">
   <title>TSP Simulated</title>
   <script src="https://cdn.tailwindcss.com"></script>
+  
+  <style>
+    body {
+      font-family: 'Segoe UI', Roboto, sans-serif;
+      background-color: #e5e5e5; /* Fondo azul claro */
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+    }
+    
+    .max-w-xl {
+      background: #ffffff; /* Blanco */
+      border-radius: 8px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+      width: 100%;
+      max-width: 500px;
+      border: none;
+      overflow: hidden;
+    }
+    
+    .max-w-xl:hover {
+      border-radius: 12px;
+      box-shadow: 0 8px 24px rgba(0, 119, 182, 0.15); /* Azul */
+      transform: translateY(-2px);
+    }
+    
+    h1 {
+      background-color: #1a659e; /* Azul oscuro */
+      color: white;
+      padding: 18px;
+      margin: -24px -24px 24px -24px;
+      font-size: 1.5rem;
+      font-weight: 600;
+      text-align: center;
+      position: relative;
+    }
+    
+    h1:after {
+      content: '';
+      position: absolute;
+      bottom: -10px;
+      left: 0;
+      right: 0;
+      height: 10px;
+      background: linear-gradient(to bottom, rgba(26, 101, 158, 0.3), transparent);
+    }
+    
+    label {
+      font-weight: 500;
+      color: #1a659e; /* Azul oscuro */
+      margin-bottom: 8px;
+      display: block;
+    }
+    
+    input {
+      border: 2px solid #bbd1ea; /* Azul claro */
+      border-radius: 8px;
+      padding: 12px;
+      width: 100%;
+      margin-bottom: 16px;
+      font-size: 1rem;
+      transition: all 0.2s ease;
+      background-color: #f7fafc;
+    }
+    
+    input:focus {
+      border-color: #1a659e; /* Azul oscuro */
+      box-shadow: 0 0 0 3px rgba(26, 101, 158, 0.1);
+      outline: none;
+      background-color: white;
+    }
+    
+    button {
+      background-color: #fca311; /* Azul oscuro */
+      color: white;
+      border: none;
+      border-radius: 12px;
+      padding: 12px 24px;
+      width: auto;
+      display: inline-block;
+      margin: 8px auto 0;
+      font-size: 1rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.2s ease;
+    }
+    
+    button:hover {
+      background-color: #004e89; /* Azul más oscuro */
+      transform: translateY(-2px);
+      box-shadow: 0 4px 12px rgba(26, 101, 158, 0.2);
+    }
+    
+    button:active {
+      transform: translateY(0);
+    }
+    
+    #resultado {
+      background-color: #e2e8f0; /* Gris azulado claro */
+      padding: 20px;
+      border-radius: 8px;
+      margin-top: 24px;
+      border-left: 4px solid #1a659e; /* Azul oscuro */
+      animation: fadeIn 0.4s ease-out;
+    }
+    
+    #ruta {
+      columns: 2;
+      column-gap: 20px;
+      margin: 12px 0;
+    }
+    
+    #ruta li {
+      margin-bottom: 6px;
+      color: #4a5568; /* Gris azulado oscuro */
+    }
+    
+    #distancia {
+      font-weight: 600;
+      color: #1a659e; /* Azul oscuro */
+      font-size: 1.1rem;
+    }
+    
+    @media (max-width: 640px) {
+      #ruta {
+        columns: 1;
+      }
+    }
+    
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(10px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+  </style>
+
 </head>
 <body class="bg-gray-100 text-gray-800 p-8">
   <div class="max-w-xl mx-auto bg-white p-6 rounded-2xl shadow-lg">
@@ -22,7 +160,7 @@
       class="w-full border p-2 rounded mb-4" />
 
     <button onclick="calcularRuta()"
-      class="w-full bg-blue-600 text-white p-2 rounded hover:bg-blue-700">
+      class="w-full bg-yellow-600 text-white p-2 rounded hover:bg-yellow-700">
       Calcular Ruta
     </button>
 
